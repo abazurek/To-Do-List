@@ -3,7 +3,6 @@
   background-color: $background-color;
   .center-section-box{
     padding-top:$margin-main;
-   padding-left: $margin-main;
+    display: flex;
   }
-
 }

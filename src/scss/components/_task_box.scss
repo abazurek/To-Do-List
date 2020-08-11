@@ -1,0 +1,33 @@
+.task-box{
+  margin-left: $margin-main;
+  .task-title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .task-title{
+      line-height: 1.2em;
+      font-size: 1.5em;
+      font-weight: 600;
+      span{
+        font-weight: 300;
+        color: $font-accent-color;
+
+      }
+    }
+    .add-button{
+      height: 34px;
+      border: $border-main;
+      border-radius: 17px;
+      background-color: white;
+      font-size: 1.1em;
+      color:$font-accent-color;
+      font-weight: 500;
+      padding: 0 15px;
+      text-align: center;
+      span{
+        line-height: 1.2em;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}

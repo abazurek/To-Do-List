@@ -9,7 +9,7 @@
     flex-grow: 9;
     height: 100%;
     .title-box{
-      border-bottom: 1px solid $border-color;
+      border-bottom: $border-main;
       .title{
         font-size:2em;
         font-weight: 600;
