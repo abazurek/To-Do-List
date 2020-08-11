@@ -1,8 +1,14 @@
 import React from "react";
-function Main({napis}) {
+import CenterSection from "./CenterSection";
+function Main() {
 
     return(
-        <div> {napis}</div>
+        <section className='main-section'>
+                <div className='title-box'>
+                    <h1 className='title'>Lista zadań</h1>
+                </div>
+                <CenterSection/>
+        </section>
     )
 }
 

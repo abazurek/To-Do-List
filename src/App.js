@@ -7,10 +7,12 @@ import Main from "./components/Main";
 
 function App() {
   return (
-    <div className="App">
-        <div className='margin'/>
-        <Main napis='jakieś rzeczy'/>
-    </div>
+
+          <div className="App">
+              <div className='colored-margin'/>
+              <Main/>
+          </div>
+
   );
 }
 
