@@ -1,5 +1,7 @@
 import React from "react";
 import { faPlus} from "@fortawesome/free-solid-svg-icons";
+import { faEdit} from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SingleTask from "./SingleTask";
 

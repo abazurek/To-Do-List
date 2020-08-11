@@ -1,1 +1,27 @@
-{}
+{"tasks":[
+  {"id": 1,
+    "category":"ToDo",
+    "title": "Poprawki karta",
+    "message": "Wprowadzenie poprawek na karcie"
+  },
+  {"id": 2,
+    "category":"ToDo",
+    "title": "Komponenty dla Mobi",
+    "message": "Dodanie brakujących komponentów"
+  },
+  {"id": 3,
+    "category":"Progress",
+    "title": "Poprawki dokumenty",
+    "message": "Wprowadzenie optymalizacji w wyświetlaniu dokumenów"
+  },
+  {"id": 4,
+    "category":"Progress",
+    "title": "Tablica dokumentów",
+    "message": "Zaprojektowanie tablicy dokumenów"
+  } ,
+  {"id": 5,
+    "category":"Done",
+    "title": "Test A/b",
+    "message": "Przeprowadzenie testów A/B"
+  }]
+}
