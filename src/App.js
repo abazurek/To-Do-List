@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
         <div className='margin'/>
-        <Main napis='jakieś głupoty'/>
+        <Main napis='jakieś rzeczy'/>
     </div>
   );
 }
