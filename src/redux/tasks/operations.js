@@ -9,7 +9,7 @@ const getData = () => dispatch => {
             dispatch(actions.getData(data));
             data.forEach(item => {
                 if (item.category === "ToDo") {
-                    dispatch(actions.pushToDo(item.message))
+                    dispatch(actions.pushToDo(item))
                 } else if (item.category === "Progress") {
                     dispatch(actions.pushProgress(item))
                 } else if (item.category === "Done") {
@@ -35,7 +35,7 @@ const postData = (data) => dispatch => {
         .catch(err => console.log(err))
 };
 
-const putData = ({id, data}) => dispatch => {
+const putData = ({id, data}) => () => {
     fetch(`${API}/${id}`, {
         method: "PATCH",
         body: JSON.stringify(data),
