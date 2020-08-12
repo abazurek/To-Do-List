@@ -4,6 +4,7 @@ const PUT_DATA='PUT_DATA';
 const PUSH_TODO='PUSH_TODO';
 const PUSH_PROGRESS='PUSH_PROGRESS';
 const PUSH_DONE='PUSH_DONE';
+const DELETE_TASK='DELETE_TASK';
 
 export default {
     GET_DATA,
@@ -12,4 +13,5 @@ export default {
     PUSH_TODO,
     PUSH_PROGRESS,
     PUSH_DONE,
+    DELETE_TASK
 }

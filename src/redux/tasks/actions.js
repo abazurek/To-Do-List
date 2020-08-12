@@ -6,7 +6,7 @@ const putData = data => ({type: types.PUT_DATA, data});
 const pushToDo = data =>({type: types.PUSH_TODO, data});
 const pushProgress = data =>({type: types.PUSH_PROGRESS, data});
 const pushDone = data =>({type: types.PUSH_DONE, data});
-
+const deleteTask= data =>({type: types.DELETE_TASK, data});
 
 export default {
     getData,
@@ -15,5 +15,5 @@ export default {
     pushToDo,
     pushProgress,
     pushDone,
-
+    deleteTask
 }

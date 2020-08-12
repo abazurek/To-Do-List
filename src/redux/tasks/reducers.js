@@ -6,7 +6,8 @@ const initialState = {
     putData: false,
     toDo: [],
     progress: [],
-    done: []
+    done: [],
+    deleted:false
 };
 function tasksReducer(state = initialState, action) {
     switch (action.type) {
@@ -39,6 +40,11 @@ function tasksReducer(state = initialState, action) {
             return {
                 ...state,
                 done: action.data
+            };
+            case  types.DELETE_TASK:
+            return {
+                ...state,
+                deleted: action.data
             };
         default:
             return state

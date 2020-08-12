@@ -42,17 +42,13 @@ const postData = (data) => dispatch => {
         .catch(err => console.log(err))
 };
 
-const putData = (id,data) => () => {
+
+const deleteData = (id) => dispatch=> {
     fetch(`${API}/${id}`, {
-        method: "PATCH",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
+        method: "DELETE"
     })
         .then(resp => resp.json())
-        .catch(err => console.log(err))
-
+        .then(data => dispatch(actions.deleteTask(data)))
+        .catch(err => console.log(err));
 };
-
-export default {getData, postData, putData}
+export default {getData, postData, deleteData};

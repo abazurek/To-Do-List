@@ -15,8 +15,8 @@
     {
       "id": 3,
       "category": "W trakcie",
-      "title": "Nie wiem co",
-      "message": "rrrr"
+      "title": "Poprawki dokumenty",
+      "message": "Wprowadzenie optymalizacji w wyświetlaniu dokumentów"
     },
     {
       "id": 4,
@@ -27,14 +27,8 @@
     {
       "id": 5,
       "category": "Zrobione",
-      "title": "Test A/b",
+      "title": "Test A/B",
       "message": "Przeprowadzenie testów A/B"
-    },
-    {
-      "category": "W trakcie",
-      "title": "kolejne",
-      "message": "ascaadf",
-      "id": 6
     }
   ]
 }
