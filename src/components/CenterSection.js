@@ -12,7 +12,7 @@ import operations from "../redux/tasks/operations";
      },[putData,post, deleted]);
 
     return(
-        <section className='center-section'>
+        <div className='center-section'>
             <div className='center-section-box'>
                 {data? <>
                     <TaskBox title='Do zrobienia' count={toDo.length}/>
@@ -20,7 +20,7 @@ import operations from "../redux/tasks/operations";
                     <TaskBox title='Zrobione' count={done.length}/>
                 </>:<span>Oczekiwanie na dane..</span>}
             </div>
-        </section>
+        </div>
     )
 }
 

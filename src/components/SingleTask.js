@@ -30,6 +30,20 @@ function SingleTask({mainTitle, title, message, item, symbole, input,buttons, po
         console.log(color)
     }
 
+    function sendTask({e, mainTitle}) {
+        e.preventDefault();
+        if (toSend.title === '') {
+            setWarning('Musisz wpisać tytuł aby dodać zadanie');
+            return
+        }
+        postData({...toSend, category: mainTitle});
+        setToSend(information);
+    }
+
+
+    function clickToEdit() {
+        setToEdit(true)
+    }
     const finishEdit=() => {
         if(titleValue ===''){
             setWarning('Musisz wpisać tytuł aby dodać zadanie');
@@ -41,19 +55,6 @@ function SingleTask({mainTitle, title, message, item, symbole, input,buttons, po
         setToEdit(false);
     };
 
-    function sendTask({e, mainTitle}) {
-        e.preventDefault();
-        if (toSend.title === '') {
-            setWarning('Musisz wpisać tytuł aby dodać zadanie');
-            return
-        }
-        postData({...toSend, category: mainTitle});
-        setToSend(information);
-    }
-
-    function clickToEdit() {
-        setToEdit(true)
-    }
 
     function removeTask() {
        deleteData(item.id)
