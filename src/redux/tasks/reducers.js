@@ -2,7 +2,7 @@ import types from "./types";
 
 const initialState = {
     data: false,
-    postData: false,
+    post: false,
     putData: false,
     toDo: [],
     progress: [],
@@ -18,7 +18,7 @@ function tasksReducer(state = initialState, action) {
         case types.POST_DATA:
             return {
                 ...state,
-                postData: action.data
+                post: action.data
             };
         case types.PUT_DATA:
             return {

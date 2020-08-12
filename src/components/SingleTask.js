@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import operations from "../redux/tasks/operations";
 import actions from "../redux/tasks/actions";
 
+
 const information = {
     "category": "",
     "title": "",
@@ -35,6 +36,7 @@ function SingleTask({mainTitle, title, message, item, symbole, input, postData,p
             return
         }
         const data= {"category":item.category, "title":titleValue, "message":messageValue};
+
         fetch(`http://localhost:3001/tasks/${item.id}`, {
             method: "PATCH",
             body: JSON.stringify(data),

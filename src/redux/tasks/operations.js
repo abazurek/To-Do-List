@@ -29,7 +29,7 @@ const getData = () => dispatch => {
 
 };
 
-const postData = (data) => () => {
+const postData = (data) => dispatch => {
     fetch(API, {
         method: "POST",
         body: JSON.stringify(data),
@@ -38,7 +38,7 @@ const postData = (data) => () => {
         }
     })
         .then(resp => resp.json())
-        .then(data=>console.log(data))
+        .then(data=>dispatch(actions.postData(data)))
         .catch(err => console.log(err))
 };
 
