@@ -8,7 +8,6 @@ const initialState = {
     progress: [],
     done: []
 };
-
 function tasksReducer(state = initialState, action) {
     switch (action.type) {
         case types.GET_DATA:
@@ -29,18 +28,20 @@ function tasksReducer(state = initialState, action) {
         case  types.PUSH_TODO:
             return {
                 ...state,
-                toDo: [...state, action.data]
+                toDo: [...state.toDo, action.data]
             };
         case  types.PUSH_PROGRESS:
             return {
                 ...state,
-                progress: [...state, action.data]
+                progress: [...state.progress, action.data]
             };
         case  types.PUSH_DONE:
             return {
                 ...state,
-                done: [...state, action.data]
+                done: [...state.done, action.data]
             };
+        default:
+            return state
 
     }
 }

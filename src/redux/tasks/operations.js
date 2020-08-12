@@ -1,22 +1,25 @@
 import actions from "./actions";
 
-const API="http://localhost:3001/tasks";
+const API = "http://localhost:3001/tasks";
 
-const getData = () => dispatch =>{
+const getData = () => dispatch => {
     fetch(API)
-        .then(data=>data.json())
-        .then(data=>dispatch(actions.getData(data)))
-        .then(arr=>arr.forEach(item=>{
-            if(item.category==="ToDo"){
-                dispatch(actions.pushToDo( item.message))
-            } else if(item.category ==="Progress"){
-                dispatch(actions.pushProgress(item))
-            } else if(item.category === "Done"){
-                dispatch(actions.pushDone(item))
-            }
+        .then(data => data.json())
+        .then(data => {
+            dispatch(actions.getData(data));
+            data.forEach(item => {
+                if (item.category === "ToDo") {
+                    dispatch(actions.pushToDo(item.message))
+                } else if (item.category === "Progress") {
+                    dispatch(actions.pushProgress(item))
+                } else if (item.category === "Done") {
+                    dispatch(actions.pushDone(item))
+                }
+            });
+        })
 
-        }))
-        .catch(err=>console.log(err))
+
+        .catch(err => console.log(err))
 };
 
 const postData = (data) => dispatch => {
@@ -27,21 +30,21 @@ const postData = (data) => dispatch => {
             "Content-Type": "application/json"
         }
     })
-        .then(resp=>resp.json())
-        .then(data=>dispatch.actions.postData(data))
-        .catch(err=>console.log(err))
+        .then(resp => resp.json())
+        .then(data => dispatch.actions.postData(data))
+        .catch(err => console.log(err))
 };
 
-const putData = ({id,data}) => dispatch => {
+const putData = ({id, data}) => dispatch => {
     fetch(`${API}/${id}`, {
-        method:"PATCH",
-        body:JSON.stringify(data),
-        headers:{
-            "Content-Type":"application/json"
+        method: "PATCH",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
         }
     })
-        .then(resp=>resp.json())
-        .catch(err=>console.log(err))
+        .then(resp => resp.json())
+        .catch(err => console.log(err))
 
 };
 
