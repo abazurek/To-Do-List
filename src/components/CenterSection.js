@@ -1,8 +1,7 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect} from "react";
 import TaskBox from "./TaskBox";
 import { connect } from 'react-redux';
 import operations from "../redux/tasks/operations";
-import actions from "../redux/tasks/actions";
 
 
  function CenterSection({toDo, progress, done, data, getData}) {
@@ -11,11 +10,6 @@ import actions from "../redux/tasks/actions";
      useEffect(function () {
          getData();
      },[]);
-
-     if(data){
-     }
-
-
 
 
     return(
