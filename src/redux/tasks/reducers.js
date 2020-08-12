@@ -28,17 +28,17 @@ function tasksReducer(state = initialState, action) {
         case  types.PUSH_TODO:
             return {
                 ...state,
-                toDo: [...state.toDo, action.data]
+                toDo: action.data
             };
         case  types.PUSH_PROGRESS:
             return {
                 ...state,
-                progress: [...state.progress, action.data]
+                progress:  action.data
             };
         case  types.PUSH_DONE:
             return {
                 ...state,
-                done: [...state.done, action.data]
+                done: action.data
             };
         default:
             return state

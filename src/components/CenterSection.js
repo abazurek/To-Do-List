@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import operations from "../redux/tasks/operations";
 
 
- function CenterSection({toDo, progress, done, data, getData}) {
+
+ function CenterSection({toDo, progress, done, data,putData, getData}) {
 
 
      useEffect(function () {
          getData();
-     },[]);
+     },[putData]);
 
     return(
         <section className='center-section'>
@@ -29,7 +30,7 @@ const mapStateToProps = state => ({
     progress: state.task.progress,
     done: state.task.done,
     data: state.task.data,
-
+    putData: state.task.putData
 });
 const mapDispatchToProps = dispatch => ({
     getData: ()=> dispatch(operations.getData())
