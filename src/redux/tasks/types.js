@@ -11,5 +11,5 @@ export default {
     PUT_DATA,
     PUSH_TODO,
     PUSH_PROGRESS,
-    PUSH_DONE
+    PUSH_DONE,
 }

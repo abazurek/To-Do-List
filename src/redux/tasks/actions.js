@@ -14,5 +14,6 @@ export default {
     putData,
     pushToDo,
     pushProgress,
-    pushDone
+    pushDone,
+
 }

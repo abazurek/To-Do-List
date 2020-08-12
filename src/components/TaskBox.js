@@ -1,9 +1,8 @@
-import React,{useState} from "react";
+import React, { useState} from "react";
 import { faPlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SingleTask from "./SingleTask";
 import {connect} from "react-redux";
-import operations from "../redux/tasks/operations";
 
 function TaskBox({title, count, toDo, progress, done}) {
 
@@ -31,8 +30,7 @@ function TaskBox({title, count, toDo, progress, done}) {
 const mapStateToProps = state => ({
     toDo: state.task.toDo,
     progress: state.task.progress,
-    done: state.task.done
-
+    done: state.task.done,
 });
 
 

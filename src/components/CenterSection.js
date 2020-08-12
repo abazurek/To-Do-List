@@ -9,9 +9,7 @@ import operations from "../redux/tasks/operations";
 
      useEffect(function () {
          getData();
-
-     },);
-
+     },[]);
 
     return(
         <section className='center-section'>
@@ -30,7 +28,7 @@ const mapStateToProps = state => ({
     toDo: state.task.toDo,
     progress: state.task.progress,
     done: state.task.done,
-    data: state.task.data
+    data: state.task.data,
 
 });
 const mapDispatchToProps = dispatch => ({
