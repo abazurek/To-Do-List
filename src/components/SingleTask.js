@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle} from "@fortawesome/free-solid-svg-icons";
@@ -13,12 +13,10 @@ const information={
 };
 
 
-function SingleTask({mainTitle,title, message, symbole, input,data, postData}) {
+function SingleTask({mainTitle,title, message, symbole, input, postData}) {
 
     const [color, setColor]=useState(false);
-
     const [warning, setWarning]=useState(information.message);
-
     const[toSend, setToSend]=useState(information);
 
 
@@ -49,17 +47,13 @@ function SingleTask({mainTitle,title, message, symbole, input,data, postData}) {
             {input? <textarea value={toSend.message} onChange={({target})=>setToSend(prev=>({...prev, message:target.value}))} placeholder={message}/>:  <p className='message'>{message}</p>}
             <span className='warning'>{warning}</span>
             {input? <button className='send-button' onClick={(e)=>sendTask({mainTitle,e})}>Dodaj</button>:''}
-
         </div>
     )
 }
-const mapStateToProps = state => ({
-    data: state.task.data
 
-});
 
 const mapDispatchToProps = dispatch => ({
     postData: (data)=> dispatch(operations.postData(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleTask);
+export default connect(null, mapDispatchToProps)(SingleTask);
