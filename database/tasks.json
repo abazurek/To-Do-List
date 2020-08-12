@@ -15,8 +15,8 @@
     {
       "id": 3,
       "category": "W trakcie",
-      "title": "Poprawki dokumenty",
-      "message": "Wprowadzenie optymalizacji w wyświetlaniu dokumenów"
+      "title": "Nie wiem co",
+      "message": "rrrr"
     },
     {
       "id": 4,
@@ -31,34 +31,28 @@
       "message": "Przeprowadzenie testów A/B"
     },
     {
-      "category": "Do zrobienia",
-      "title": "asas",
-      "message": "asdsd",
+      "category": "W trakcie",
+      "title": "nowe zadanie",
+      "message": "nowe zadanie",
       "id": 6
     },
     {
       "category": "Do zrobienia",
-      "title": "asdas",
-      "message": "adsdsa",
+      "title": "asdsd",
+      "message": "asdads",
       "id": 7
     },
     {
-      "category": "Do zrobienia",
-      "title": "as",
-      "message": "sdsf",
+      "category": "W trakcie",
+      "title": "ads",
+      "message": "adad",
       "id": 8
     },
     {
-      "category": "Do zrobienia",
-      "title": "sdfsdf",
-      "message": "sdfsasdf",
-      "id": 9
-    },
-    {
       "category": "W trakcie",
-      "title": "dsfsdf",
-      "message": "sdff",
-      "id": 10
+      "title": "ffffffffffff",
+      "message": "ffffffffff",
+      "id": 9
     }
   ]
 }

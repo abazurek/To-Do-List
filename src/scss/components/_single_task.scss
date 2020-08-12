@@ -1,3 +1,8 @@
+.edit-button{
+  @include button;
+  margin: $margin-main/2 0;
+  background-color: $edit-button-color;
+}
 .single-task-box{
   margin-top: $margin-main;
   background-color: white;
@@ -24,10 +29,10 @@
       height: 20px;
     }
     svg[data-icon="edit"]{
-      color: #9d973f;
+    color:  $edit-icon-color
     }
     svg[data-icon="check-circle"]{
-      color: #5d9d75;
+     color:  $check-icon-color
     }
 
   }

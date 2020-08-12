@@ -3,7 +3,7 @@ const POST_DATA='POST_DATA';
 const PUT_DATA='PUT_DATA';
 const PUSH_TODO='PUSH_TODO';
 const PUSH_PROGRESS='PUSH_PROGRESS';
-const PUSH_DONE='PUT_DONE';
+const PUSH_DONE='PUSH_DONE';
 
 export default {
     GET_DATA,
