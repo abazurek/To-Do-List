@@ -1,15 +1,44 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import TaskBox from "./TaskBox";
+import { connect } from 'react-redux';
+import operations from "../redux/tasks/operations";
+import actions from "../redux/tasks/actions";
 
-export default function CenterSection() {
+
+ function CenterSection({toDo, progress, done, data, getData}) {
+
+
+     useEffect(function () {
+         getData();
+     },[]);
+
+     if(data){
+     }
+
+
+
+
     return(
         <section className='center-section'>
             <div className='center-section-box'>
-                <TaskBox title='Do zrobienia' count={3}/>
-                <TaskBox title='W trakcie' count={2}/>
-                <TaskBox title='Zrobione' count={1}/>
+                {data? <>
+                    <TaskBox title='Do zrobienia' count={toDo.length}/>
+                    <TaskBox title='W trakcie' count={progress.length}/>
+                    <TaskBox title='Zrobione' count={done.length}/>
+                </>:<span>Oczekiwanie na dane..</span>}
             </div>
-
         </section>
     )
 }
+
+const mapStateToProps = state => ({
+    toDo: state.task.toDo,
+    progress: state.task.progress,
+    done: state.task.done,
+    data: state.task.data
+
+});
+const mapDispatchToProps = dispatch => ({
+    getData: ()=> dispatch(operations.getData()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CenterSection);

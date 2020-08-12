@@ -1,9 +1,13 @@
 import React from "react";
 import { faPlus} from "@fortawesome/free-solid-svg-icons";
+import { faEdit} from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SingleTask from "./SingleTask";
+import {connect} from "react-redux";
+import operations from "../redux/tasks/operations";
 
-export default function TaskBox({title, count}) {
+function TaskBox({title, count}) {
 
     return(
         <div className='task-box'>
@@ -17,3 +21,17 @@ export default function TaskBox({title, count}) {
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+    toDo: state.task.toDo,
+    progress: state.task.progress,
+    done: state.task.done,
+    data: state.task.data
+
+});
+
+const mapDispatchToProps = dispatch => ({
+    getData: ()=> dispatch(operations.getData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskBox);
