@@ -11,7 +11,6 @@ import operations from "../redux/tasks/operations";
          getData();
      },[]);
 
-
     return(
         <section className='center-section'>
             <div className='center-section-box'>
@@ -29,10 +28,10 @@ const mapStateToProps = state => ({
     toDo: state.task.toDo,
     progress: state.task.progress,
     done: state.task.done,
-    data: state.task.data
+    data: state.task.data,
 
 });
 const mapDispatchToProps = dispatch => ({
-    getData: ()=> dispatch(operations.getData()),
+    getData: ()=> dispatch(operations.getData())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CenterSection);
