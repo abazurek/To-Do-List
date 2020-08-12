@@ -7,8 +7,6 @@ import operations from "../redux/tasks/operations";
 
 function TaskBox({title, count, toDo, progress, done}) {
 
-
-
     return(
         <div className='task-box'>
             <div className='task-title-box'>

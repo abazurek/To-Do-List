@@ -17,8 +17,6 @@ const getData = () => dispatch => {
                 }
             });
         })
-
-
         .catch(err => console.log(err))
 };
 
