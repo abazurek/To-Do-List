@@ -29,6 +29,20 @@ const getData = () => dispatch => {
 
 };
 
+const putData=(id,data) => dispatch =>{
+    fetch(`http://localhost:3001/tasks/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(resp => resp.json())
+        .then(dispatch(actions.putData(data)))
+        .catch(err => console.log(err));
+};
+
+
 const postData = (data) => dispatch => {
     fetch(API, {
         method: "POST",
@@ -51,4 +65,4 @@ const deleteData = (id) => dispatch=> {
         .then(data => dispatch(actions.deleteTask(data)))
         .catch(err => console.log(err));
 };
-export default {getData, postData, deleteData};
+export default {getData, postData,putData, deleteData};
