@@ -6,7 +6,6 @@ import {faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {connect} from "react-redux";
 import operations from "../redux/tasks/operations";
-import actions from "../redux/tasks/actions";
 
 
 const information = {
@@ -37,18 +36,8 @@ function SingleTask({mainTitle, title, message, item, symbole, input,buttons, po
             return
         }
         const data= {"category":item.category, "title":titleValue, "message":messageValue};
-
-        fetch(`http://localhost:3001/tasks/${item.id}`, {
-            method: "PATCH",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(resp => resp.json())
-            .then(putData(data))
-            .catch(err => console.log(err));
-
+        const id=item.id;
+        putData(id,data);
         setToEdit(false);
     };
 
@@ -72,20 +61,11 @@ function SingleTask({mainTitle, title, message, item, symbole, input,buttons, po
 
     function changeStatusTask(category) {
 
-        const data= {"category":category, "title":titleValue, "message":messageValue};
+        const data = {"category": category, "title": titleValue, "message": messageValue};
+        const id=item.id;
+        putData(id,data);
 
-        fetch(`http://localhost:3001/tasks/${item.id}`, {
-            method: "PATCH",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(resp => resp.json())
-            .then(putData(category))
-            .catch(err => console.log(err));
     }
-
 
 
     return (
@@ -155,7 +135,7 @@ function SingleTask({mainTitle, title, message, item, symbole, input,buttons, po
 
 const mapDispatchToProps = dispatch => ({
     postData: (data) => dispatch(operations.postData(data)),
-    putData:(data)=>dispatch(actions.putData(data)),
+    putData:(id,data)=>dispatch(operations.putData(id,data)),
     deleteData:(id)=>dispatch(operations.deleteData(id))
 });
 
