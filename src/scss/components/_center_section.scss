@@ -1,6 +1,7 @@
 .center-section{
   height: 100%;
   background-color: $background-color;
+  padding-bottom: $margin-main;
   .center-section-box{
     padding-top:$margin-main;
     display: flex;

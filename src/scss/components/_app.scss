@@ -3,11 +3,12 @@
   .colored-margin{
     flex-grow:1 ;
     background-color: rgba(47, 38, 109, 1);
-    height: 100%;
+    min-height: 100%;
+
   }
   .main-section{
     flex-grow: 9;
-    height: 100%;
+    min-height: 100%;
     .title-box{
       border-bottom: $border-main;
       .title{

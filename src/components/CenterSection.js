@@ -9,7 +9,8 @@ import operations from "../redux/tasks/operations";
 
      useEffect(function () {
          getData();
-     },[]);
+
+     },);
 
 
     return(
@@ -33,6 +34,6 @@ const mapStateToProps = state => ({
 
 });
 const mapDispatchToProps = dispatch => ({
-    getData: ()=> dispatch(operations.getData()),
+    getData: ()=> dispatch(operations.getData())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CenterSection);

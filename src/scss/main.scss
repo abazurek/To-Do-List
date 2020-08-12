@@ -5,8 +5,11 @@
 html{
   font-size: 16px;
   font-family: $font-base;
+
 }
-html, body, #root, .App{
+html,body, #root, .App{
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+
 }
+

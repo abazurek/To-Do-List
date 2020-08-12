@@ -15,15 +15,7 @@
       }
     }
     .add-button{
-      height: 34px;
-      border: $border-main;
-      border-radius: 17px;
-      background-color: white;
-      font-size: 1.1em;
-      color:$font-accent-color;
-      font-weight: 500;
-      padding: 0 15px;
-      text-align: center;
+      @include button;
       span{
         line-height: 1.2em;
         margin-right: 0.5em;

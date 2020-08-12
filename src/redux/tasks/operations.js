@@ -8,11 +8,11 @@ const getData = () => dispatch => {
         .then(data => {
             dispatch(actions.getData(data));
             data.forEach(item => {
-                if (item.category === "ToDo") {
+                if (item.category === "Do zrobienia") {
                     dispatch(actions.pushToDo(item))
-                } else if (item.category === "Progress") {
+                } else if (item.category === "W trakcie") {
                     dispatch(actions.pushProgress(item))
-                } else if (item.category === "Done") {
+                } else if (item.category === "Zrobione") {
                     dispatch(actions.pushDone(item))
                 }
             });
@@ -22,7 +22,7 @@ const getData = () => dispatch => {
         .catch(err => console.log(err))
 };
 
-const postData = (data) => dispatch => {
+const postData = (data) => () => {
     fetch(API, {
         method: "POST",
         body: JSON.stringify(data),
@@ -31,7 +31,7 @@ const postData = (data) => dispatch => {
         }
     })
         .then(resp => resp.json())
-        .then(data => dispatch.actions.postData(data))
+        .then(data=>console.log(data))
         .catch(err => console.log(err))
 };
 
