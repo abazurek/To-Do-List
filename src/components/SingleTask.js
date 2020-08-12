@@ -15,7 +15,7 @@ const information = {
 };
 
 
-function SingleTask({mainTitle, title, message, item, symbole, input,buttons, postData,putData, deleteData}) {
+function SingleTask({mainTitle, title, message, item, symbole, input,showInput,buttons, postData,putData, deleteData}) {
 
     const [color, setColor] = useState(false);
     const [warning, setWarning] = useState(information.message);
@@ -38,6 +38,7 @@ function SingleTask({mainTitle, title, message, item, symbole, input,buttons, po
         }
         postData({...toSend, category: mainTitle});
         setToSend(information);
+        showInput(false)
     }
 
 
