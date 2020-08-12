@@ -16,7 +16,7 @@ const information = {
 };
 
 
-function SingleTask({mainTitle, title, message, item, symbole, input, postData,putData, deleteData}) {
+function SingleTask({mainTitle, title, message, item, symbole, input,buttons, postData,putData, deleteData}) {
 
     const [color, setColor] = useState(false);
     const [warning, setWarning] = useState(information.message);
@@ -46,9 +46,9 @@ function SingleTask({mainTitle, title, message, item, symbole, input, postData,p
             }
         })
             .then(resp => resp.json())
-            .then(resp=>console.log(resp))
+            .then(putData(data))
             .catch(err => console.log(err));
-        putData(data);
+
         setToEdit(false);
     };
 
@@ -70,6 +70,21 @@ function SingleTask({mainTitle, title, message, item, symbole, input, postData,p
        deleteData(item.id)
     }
 
+    function changeStatusTask(category) {
+
+        const data= {"category":category, "title":titleValue, "message":messageValue};
+
+        fetch(`http://localhost:3001/tasks/${item.id}`, {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(resp => resp.json())
+            .then(putData(category))
+            .catch(err => console.log(err));
+    }
 
 
 
@@ -92,18 +107,43 @@ function SingleTask({mainTitle, title, message, item, symbole, input, postData,p
                 <>
                     <div className='single-task-box' >
                         <div className='single-task-title-box'>
-                            {toEdit? <input value={titleValue} onChange={({target})=>setTitleValue(target.value)} /> :  <h4 onClick={clickToEdit} className='single-task-title'>{title}</h4>}
+                            {toEdit?
+                                <input value={titleValue} onChange={({target})=>setTitleValue(target.value)} />
+                                :
+                                <h4 onClick={clickToEdit} className='single-task-title'>{title}</h4>}
                             {symbole === "circle" ?
-                               <div className='icons-div'> <div style={color ? {backgroundColor: "red"} : {backgroundColor: 'white'}}
-                                     onClick={clickDiv} className='check-div icon'/><FontAwesomeIcon onClick={removeTask} icon={faTrashAlt}/> </div>: ''}
-                            {symbole === "edit" ? <div className='icons-div'> <FontAwesomeIcon onClick={clickToEdit} className='icon' icon={faEdit}/> <FontAwesomeIcon onClick={removeTask} icon={faTrashAlt}/> </div>: ''}
-                            {symbole === "done" ? <div className='icons-div'> <FontAwesomeIcon className='icon' icon={faCheckCircle}/> <FontAwesomeIcon onClick={removeTask} icon={faTrashAlt}/></div> : ''}
+                               <div className='icons-div'>
+                                   <div style={color ? {backgroundColor: "red"} : {backgroundColor: 'white'}}
+                                     onClick={clickDiv} className='check-div icon'/>
+                                     <FontAwesomeIcon onClick={removeTask} icon={faTrashAlt}/>
+                               </div>
+                                : ''}
+                            {symbole === "edit" ?
+                                <div className='icons-div'>
+                                    <FontAwesomeIcon onClick={clickToEdit} className='icon' icon={faEdit}/>
+                                    <FontAwesomeIcon onClick={removeTask} icon={faTrashAlt}/>
+                                </div>
+                                : ''}
+                            {symbole === "done" ?
+                                <div className='icons-div'>
+                                    <FontAwesomeIcon className='icon' icon={faCheckCircle}/>
+                                    <FontAwesomeIcon onClick={removeTask} icon={faTrashAlt}/>
+                                </div>
+                                : ''}
 
                         </div>
                         {toEdit? <textarea value={messageValue} onChange={({target})=> setMessageValue(target.value)} /> :   <p onClick={clickToEdit} className='message'>{message}</p>}
 
                         <span className='warning'>{warning}</span>
+                        <div className='edit-buttons-box'>
+                            {buttons.map(item=>
+                                <button className='change-status-button' onClick={()=>changeStatusTask(item)}>
+                                    Przenieś do: '{item}'
+                                </button>)}
+                        </div>
+
                     </div>
+
                     {toEdit ? <button className='edit-button' onClick={finishEdit}>Zakończ edycję</button> : ""}
                 </>
             }

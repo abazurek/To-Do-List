@@ -10,7 +10,6 @@
   min-height: 200px;
   padding: $margin-main/2;
 
-
   .single-task-title-box{
     display: flex;
     justify-content: space-between;
@@ -76,4 +75,12 @@
   color: red;
     margin-bottom: 5px;
 }
+  .edit-buttons-box{
+    margin-top: $margin-main;
+    .change-status-button{
+      @include button;
+      margin-top: $margin-main/2;
+    }
+  }
+
 }
