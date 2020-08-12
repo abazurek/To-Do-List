@@ -17,5 +17,5 @@ localhost:3000
 
 To avalible  get tasks:
 
-open terminal on "database" directory and paste: 
-json-server --watch tasks.json --port 3001
+open terminal on "database" directory and paste: <br/>
+`json-server --watch tasks.json --port 3001`
