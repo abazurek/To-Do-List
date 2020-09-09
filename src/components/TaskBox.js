@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{useState} from "react";
 import { faPlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SingleTask from "./SingleTask";
@@ -8,14 +8,10 @@ function TaskBox({title, count, toDo, progress, done}) {
 
     const [newTask, setNewTask]=useState(false);
 
-    useEffect(function () {
-
-    },[]);
-
     function clickButton (){
-       newTask? setNewTask(false):setNewTask(true);
-
+       setNewTask(!newTask)
     }
+
     return(
         <div className='task-box'>
             <div className='task-title-box'>

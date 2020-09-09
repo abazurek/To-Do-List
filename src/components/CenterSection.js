@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import operations from "../redux/tasks/operations";
 
 
-
  function CenterSection({toDo, progress, done, data,putData,post,deleted, getData}) {
 
      useEffect(function () {

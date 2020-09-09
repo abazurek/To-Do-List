@@ -26,8 +26,7 @@ function SingleTask({mainTitle, title, message, item, symbole, input,showInput,b
 
 
     function clickDiv() {
-        color ? setColor(false) : setColor(true);
-        console.log(color)
+        setColor(!color);
     }
 
     function sendTask({e, mainTitle}) {
@@ -50,6 +49,7 @@ function SingleTask({mainTitle, title, message, item, symbole, input,showInput,b
             setWarning('Musisz wpisać tytuł aby dodać zadanie');
             return
         }
+        else setWarning('');
         const data= {"category":item.category, "title":titleValue, "message":messageValue};
         const id=item.id;
         putData(id,data);
@@ -119,7 +119,7 @@ function SingleTask({mainTitle, title, message, item, symbole, input,showInput,b
                         <span className='warning'>{warning}</span>
                         <div className='edit-buttons-box'>
                             {buttons.map(item=>
-                                <button className='change-status-button' onClick={()=>changeStatusTask(item)}>
+                                <button key={item} className='change-status-button' onClick={()=>changeStatusTask(item)}>
                                     Przenieś do: '{item}'
                                 </button>)}
                         </div>
